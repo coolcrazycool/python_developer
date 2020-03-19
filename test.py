@@ -43,4 +43,4 @@ array["4"] = "3"
 iterate()
 del array[3]
 iterate()
-
+iterate()
