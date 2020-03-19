@@ -3,6 +3,7 @@ from array import array
 
 class Arr:
     def __init__(self, element_type, *elements):
+        self.el_type = element_type
         self.data = array(element_type, elements)
 
     def __getitem__(self, item):
@@ -48,16 +49,27 @@ class Arr:
         return counter
 
     def insert(self, position, item):
-        pass
+        sec_array = [_ for _ in self.data[position::]]
+        second_part = Arr(self.rtype, *sec_array)
+        fir_array = [_ for _ in self.data[:position:]]
+        first_part = Arr(self.rtype, *fir_array)
+        new_array = Arr(self.rtype, *first_part, *item, *second_part)
+        self.data = new_array
+
+    @property
+    def rtype(self):
+        return self.el_type
 
     def append(self, item):
-        pass
+        new_array = Arr(self.rtype, *self.data, item)
+        self.data = new_array
 
-    def extend(self):
-        pass
+    def extend(self, item):
+        new_array = Arr(self.rtype, *self.data, *item)
+        self.data = new_array
 
     def clear(self):
-        for i in range(len(self.data)-1, -1, -1):
+        for i in range(len(self.data) - 1, -1, -1):
             del self.data[i]
 
     def pop(self, item):
