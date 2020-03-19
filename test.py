@@ -43,4 +43,9 @@ array["4"] = "3"
 iterate()
 del array[3]
 iterate()
+array.append("5")
+iterate()
+array.pop(3)
+iterate()
+array.clear()
 iterate()

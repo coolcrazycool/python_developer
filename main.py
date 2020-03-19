@@ -47,23 +47,29 @@ class Arr:
                 counter += 1
         return counter
 
-    def insert(self):
+    def insert(self, position, item):
         pass
 
-    def append(self):
-        pass
-
-    def clear(self):
+    def append(self, item):
         pass
 
     def extend(self):
         pass
 
-    def pop(self):
-        pass
+    def clear(self):
+        for i in range(len(self.data)-1, -1, -1):
+            del self.data[i]
 
-    def remove(self):
-        pass
+    def pop(self, item):
+        last = self.data[item]
+        del self.data[item]
+        return last
+
+    def remove(self, item):
+        del self.data[item]
+
+    def isEmpty(self):
+        return self.data == []
 
 
 class Iterator:
